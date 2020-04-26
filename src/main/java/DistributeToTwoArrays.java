@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-
 public class DistributeToTwoArrays {
     public static void sort(List<Integer> arr) {
         List<Integer> a;

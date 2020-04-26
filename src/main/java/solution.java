@@ -31,8 +31,8 @@ public class solution {
         results.stream().forEach(r -> System.out.println(r[0] + " " + r[1]));
     }
 
-    private static BigInteger[] multiplyComplex(BigInteger[] c1, BigInteger[] c2) {
+    public static BigInteger[] multiplyComplex(BigInteger[] c1, BigInteger[] c2) {
         return new BigInteger[]{c1[0].multiply(c2[0]).subtract(c1[1].multiply(c2[1])),
-                                c1[1].multiply(c2[0]).subtract(c2[1].multiply(c1[0]))};
+                                c1[1].multiply(c2[0]).add(c2[1].multiply(c1[0]))};
     }
 }
