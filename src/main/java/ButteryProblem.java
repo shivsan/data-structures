@@ -18,6 +18,10 @@ public class ButteryProblem {
         return noOfWays;
     }
 
+    /*
+    nwi = nwi-1*k - nwi-2*(k-1) + nwi-3*(k-2) - .... - (k-1)
+     */
+
     public int getNoOfWaysDP(int n, int k) {
         int subrendum = k - 1;
         int noOfWaysForNMinus1 = k;

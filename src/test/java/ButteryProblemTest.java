@@ -2,6 +2,10 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
+/*
+    N slots, K colors, 1 color can be adjacent to itself.
+    How many permutations of colors can you put in N slots adhering to the contstraint.
+ */
 public class ButteryProblemTest {
 
     @Test
