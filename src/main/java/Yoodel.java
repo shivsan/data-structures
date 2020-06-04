@@ -3,19 +3,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Yoodel {
-    public void sortHasMap() {
-        Map<Integer, Integer> map = new HashMap<>();
-        map.put(1, 1);
-        map.put(-1, 1);
-        map.put(0, 1);
-        map.put(5, 1);
-
-        map.entrySet().stream()
-                .sorted(Comparator.comparingInt(Map.Entry::getKey))
-                .forEach(kv -> System.out.println(kv));
-    }
-
-    public void printAllPermutations(char[] chars) {
+    public void printAllPermutationsRecursively(char[] chars) {
         List<Character> charList = IntStream.range(0, chars.length).mapToObj(i -> chars[i]).collect(Collectors.toList());
 
         print(charList, new StringBuilder());
@@ -27,18 +15,35 @@ public class Yoodel {
             return;
         }
 
-        List<Character> cloneList = new LinkedList<>();
-        cloneList.addAll(chars);
-
         for (int i = 0; i < chars.size(); i++) {
-            char element = cloneList.get(i);
+            char element = chars.get(i);
             createdString.append(element);
-            cloneList.remove(i);
-            print(cloneList, createdString);
-            cloneList.add(i, element);
+            chars.remove(i);
+            print(chars, createdString);
+            chars.add(i, element);
             createdString.deleteCharAt(createdString.length() - 1);
         }
+    }
 
+    public void printAllPermutationsIteratively(char[] chars) {
+        List<String> finalWordList = new LinkedList<>();
+        finalWordList.add("");
+
+        for (char newCharacter : chars) {
+            List<String> wordListWithOneMoreCharacter = new LinkedList<>();
+
+            for (String word : finalWordList) {
+                for (int wordIndex = 0; wordIndex < word.length(); wordIndex++) {
+                    wordListWithOneMoreCharacter.add(word.substring(0, wordIndex) + newCharacter + word.substring(wordIndex));
+                }
+
+                wordListWithOneMoreCharacter.add(word + newCharacter);
+            }
+
+            finalWordList = wordListWithOneMoreCharacter;
+        }
+
+        System.out.println(Arrays.deepToString(finalWordList.toArray()));
     }
 }
 

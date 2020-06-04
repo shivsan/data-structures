@@ -1,7 +1,5 @@
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class YoodelTest {
 
     @Test
@@ -11,7 +9,12 @@ public class YoodelTest {
 
     @Test
     public void printAllPermutations() {
-        new Yoodel().printAllPermutations(new char[] {'a', 'b', 'c', 'd', 'e', 'f'});
+        new Yoodel().printAllPermutationsRecursively(new char[] {'a', 'b', 'c', 'd', 'e', 'f'});
+    }
+
+    @Test
+    public void printAllPermutationsIteratively() {
+        new Yoodel().printAllPermutationsIteratively(new char[] {'a', 'b', 'c', 'd', 'e', 'f'});
     }
 }
 
