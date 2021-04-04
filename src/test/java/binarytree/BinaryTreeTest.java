@@ -1,33 +1,50 @@
 package binarytree;
 
-import com.sun.tools.javac.util.ArrayUtils;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.stream.Stream;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(JUnit4.class)
 public class BinaryTreeTest {
     private BinaryTree binaryTree;
 
-    @Before
-    public void setUp() {
-//        this.binaryTree = new BinaryTree();
+    @Test
+    public void shouldCreateBinaryTree() {
+        this.binaryTree = new BinaryTree();
+        binaryTree.add(1);
+        binaryTree.add(2);
+        binaryTree.add(3);
+
+        Node node = binaryTree.search(3);
+
+        assertEquals(3, node.value);
     }
 
     @Test
-    public void shouldCreateBinaryTree() {
-        final char[] x = Arrays.asList("asd".toCharArray()).stream().findFirst().get();
-        System.out.println(x);
-        System.out.println(Arrays.asList(new int[]{1, 2, 33, 4}).stream().findFirst().get());
-        "str".chars().mapToObj(c -> (char) c).toArray(Character[]::new);
-//        System.out.println("asd".chars.stream().findFirst().get());
+    public void inOrderTraversal() {
+        this.binaryTree = new BinaryTree();
+        binaryTree.add(5);
+        binaryTree.add(10);
+        binaryTree.add(1);
+        binaryTree.add(2);
+        binaryTree.add(3);
 
-        HashSet<Integer> hashSet = new HashSet<Integer>();
-        hashSet.size();
+        binaryTree.inOrderTraversal();
     }
+
+    @Test
+    public void preOrderTraversal() {
+        this.binaryTree = new BinaryTree();
+        binaryTree.add(5);
+        binaryTree.add(10);
+        binaryTree.add(1);
+        binaryTree.add(2);
+        binaryTree.add(3);
+
+        binaryTree.preOrderTraversal();
+    }
+
+
 }
