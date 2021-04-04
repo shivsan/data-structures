@@ -11,12 +11,16 @@ import static org.junit.Assert.assertEquals;
 public class GraphTest {
 
     @Test
-    public void name() {
+    public void shouldBfsGraph() {
+        Graph graph = createGraph();
 
+        Node searchNode = graph.searchNode(5);
+
+        assertEquals(5, searchNode.value);
     }
 
     @Test
-    public void shouldBfsGraph() {
+    public void shouldDfsGraph() {
         Graph graph = createGraph();
 
         Node searchNode = graph.searchNodeDfs(5);
